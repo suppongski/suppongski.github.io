@@ -1,0 +1,44 @@
+---
+layout: post
+title:  1주차 수업
+subtitle: markdown 테스트
+categories: 수업
+tags: 
+---
+# 행운의 편지
+이 편지는 **영국**에서 시작~
+
+*sdfasdf*
+**gdfg**
+
+_ewff_
+__Fwefe__
+
+* dfsddf
+* regergg
+* serhe
+	* ewgrgegr
+
+13. rkgjhkkr
+0. qt43fre
+1. e rgerg
+2. fgdfg
+      5. ggerg
+
+> rergrer
+
+reknrenkv '_posts' ergjherkgjkj
+
+'''
+ffrgthrterg 코드블락
+'''
+
+[깃허브 링킹](https://github.com/)
+
+![깃허브 이미지 첨부 여기 비워도댐](https://img.etnews.com/photonews/1702/919997_20170203152936_096_0002.jpg)
+
+-------
+
+글자띄어  
+쓰기는두\
+가지이다
