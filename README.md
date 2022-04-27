@@ -44,6 +44,10 @@
 * 최대유량 그래프 예시
 <img width="619" alt="유량 예시" src="https://user-images.githubusercontent.com/101388182/165442731-ea641993-eab9-4867-a9b7-4056e4712ec4.png">
 
+* DFS 활용부분  
+<img width="557" alt="포드 이용부분" src="https://user-images.githubusercontent.com/101388182/165449547-12216125-ea05-44a0-ba37-0170e20c03a0.PNG">
+
+
 * 코드 실행결과창
 <img width="563" alt="포드 실행결과창" src="https://user-images.githubusercontent.com/101388182/165443055-2f4f558a-8093-48a8-a01c-cba999dc9a42.png">
 
@@ -65,8 +69,39 @@ Ford-Fulkerson 알고리즘과 경로탐색시 탐색방법에만 차이가 있�
 ---
 7. **Edmonds-Karp 알고리즘 코드 실행결과**
 * 최대유량 그래프 예시는 위의 Ford-Fulkerson 알고리즘의 예시와 같다.
+* BFS 활용부분  
+<img width="836" alt="애드몬드 활용부분" src="https://user-images.githubusercontent.com/101388182/165456030-75267f3f-6acd-4e11-928f-cd0cdea9cfda.PNG">
+
 * 코드 실행결과창  
 <img width="552" alt="애드몬드 실행결과창" src="https://user-images.githubusercontent.com/101388182/165446024-87b67e07-eeff-4cd8-bc8e-f8a3fcf7664a.PNG">
 
 ---
 8. **2개 코드의 성능분석**
+* Ford-Fulkerson의 시간복잡도  
+E = 엣지, V = 정점, F = 최대유량 일때 ***O(V + E) F)***
+* Edmonds-Karp의 시간복잡도  
+E = 엣지, V = 정점 일때 ***O(VE^2)***  
+
+>이렇게 두 알고리즘은 시간복잡도에서 차이가 나므로 상황에 맞는 알고리즘을 활용해야 한다.  
+>잘 알려진 예시로 최대유량 문제의 극단적인 상황이 있다.  
+<img width="480" alt="극단적 예시" src="https://user-images.githubusercontent.com/101388182/165457666-14baba08-2ee0-4764-a22c-961b6d764bd4.PNG">
+
+이런 그래프가 있고 Ford-Fulkerson 알고리즘으로 구현했다고 하자.  
+    1. A→B→C→D 1의 유량 보냄  
+    2. A→C→B→D 반대방향 엣지를 이용해 1의 유량 보냄  
+    3. A→B→C→D 1의 유량 보냄  
+    4. A→C→B→D 반대방향 엣지를 이용해 1의 유량 보냄  
+    5. 1~4번 과정 반복  
+최악의 경우 유량의 최댓값만큼 반복하게 된다.    
+
+이번엔 Edmonds-Karp 알고리즘으로 구현했다고 하면  
+    1. A→B→D 1000의 유량 보냄  
+    2. A→C→D 1000의 유량 보냄  
+이렇게 2번의 탐색으로 최대유량을 찾아낼 수 있다.  
+
+* 결론  
+유량의 값이 작고, 엣지가 많으면 Ford-Fulkerson이 더 빠를 수 있고  
+엣지가 적고, 유량의 값이 크면 Edmonds-Karp가 더 빠를 수 있다.
+
+---
+9. 소감
