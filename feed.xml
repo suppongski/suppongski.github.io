@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="/jekyll-theme-yat/feed.xml" rel="self" type="application/atom+xml" /><link href="/jekyll-theme-yat/" rel="alternate" type="text/html" /><updated>2022-04-27T07:35:36+00:00</updated><id>/jekyll-theme-yat/feed.xml</id><title type="html">INU Programming Algorithm</title><subtitle>This page is a test page of 2022 INU computer algorithm class.</subtitle><author><name>Suppong</name></author><entry><title type="html">3주차 과제 (선택정렬)</title><link href="/jekyll-theme-yat/%EA%B3%BC%EC%A0%9C/2022/03/23/week3-assignment.html" rel="alternate" type="text/html" title="3주차 과제 (선택정렬)" /><published>2022-03-23T00:00:00+00:00</published><updated>2022-03-23T00:00:00+00:00</updated><id>/jekyll-theme-yat/%EA%B3%BC%EC%A0%9C/2022/03/23/week3-assignment</id><content type="html" xml:base="/jekyll-theme-yat/%EA%B3%BC%EC%A0%9C/2022/03/23/week3-assignment.html">&lt;h2 id=&quot;선택정렬&quot;&gt;선택정렬&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;선택정렬이란 주어진 배열 중 랜덤으로 하나의 수를 피봇으로 선택하여 나머지 수 들을 피봇보다 작으면 왼쪽, 피봇보다 크면 오른쪽으로 나누고, 피봇의 왼쪽과 오른쪽 에 대하여 각각 피봇을 선정하여 다시 나누어 가는 정렬 방법이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;나만의-예제&quot;&gt;나만의 예제&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;배열의 크기와 배열을 입력하고 원하는 n번째로 작은 숫자를 찾아내는 문제이다.
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import java.util.Scanner;
+import java.util.Random;
+public class week3_selection {
+  public static int selection(int size, int arr[], int find) {
+      Random random = new Random();
+      int lcount = 0, rcount = 0;
+      int p = random.nextInt(size);
+      int temp = arr[0];
+      arr[0] = arr[p];
+      arr[p] = temp;
+      int left[] = new int[size];
+      int right[] = new int[size];
+      for (int a=1; a&amp;lt;size; a++)
+      {
+          if (arr[a] &amp;lt; arr[0])
+          {
+              left[lcount] = arr[a];
+              lcount++;
+          }
+          else
+          {
+              right[rcount] = arr[a];
+              rcount++;
+          }
+      }
+      if (find == lcount+1)
+      {
+          return arr[0];
+      }
+      else if (find &amp;lt;= lcount)
+      {
+          return selection(lcount, left, find);
+      }
+      else
+      {
+          return selection(rcount, right, find-(lcount+1));
+      }
+
+  }
+
+
+
+
+
+  public static void main(String[] args) {
+      Scanner scanner = new Scanner(System.in);
+      int array[];
+      System.out.println(&quot;배열의 크기를 입력: &quot;);
+      int n = scanner.nextInt();
+      array = new int[n];
+      System.out.println(&quot;배열을 입력: &quot;);
+      for (int i=0; i&amp;lt;n; i++)
+      {
+          array[i] = scanner.nextInt();
+      }
+      System.out.println(&quot;몇번째 작은 수를 구할까요?: &quot;);
+      int k = scanner.nextInt();
+
+      int result = selection(n, array, k);
+      System.out.println(k + &quot;번째 작은 수는 : &quot; + result);
+
+      scanner.close();
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;hr /&gt;
+    &lt;h2 id=&quot;intellij-콘솔창-한글깨짐-해결방법&quot;&gt;INTELLIJ 콘솔창 한글깨짐 해결방법&lt;/h2&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  1. &quot;edit configurations...&quot;를 열어 open jdk-17 로 변경해 준다.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Suppong</name></author><category term="과제" /><category term="과제" /><category term="정렬" /><summary type="html">선택정렬 선택정렬이란 주어진 배열 중 랜덤으로 하나의 수를 피봇으로 선택하여 나머지 수 들을 피봇보다 작으면 왼쪽, 피봇보다 크면 오른쪽으로 나누고, 피봇의 왼쪽과 오른쪽 에 대하여 각각 피봇을 선정하여 다시 나누어 가는 정렬 방법이다.</summary></entry><entry><title type="html">3주차 과제 (백준 sort)</title><link href="/jekyll-theme-yat/%EA%B3%BC%EC%A0%9C/2022/03/23/week3-assignment2.html" rel="alternate" type="text/html" title="3주차 과제 (백준 sort)" /><published>2022-03-23T00:00:00+00:00</published><updated>2022-03-23T00:00:00+00:00</updated><id>/jekyll-theme-yat/%EA%B3%BC%EC%A0%9C/2022/03/23/week3-assignment2</id><content type="html" xml:base="/jekyll-theme-yat/%EA%B3%BC%EC%A0%9C/2022/03/23/week3-assignment2.html">&lt;h2 id=&quot;백준-점수집계-문제&quot;&gt;백준 점수집계 문제&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/9076&quot;&gt;문제 링크&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;문제&quot;&gt;문제&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;한국 체조협회에서는 심판의 오심을 막기 위하여 점수 집계 시스템을 고치기로 하였다. 이전에는 5명의 심판이 1점부터 10점까지 정수의 점수를 주면 최고점과 최저점을 하나씩 제외한 점수의 합을 총점으로 하였다. 이를 보완하기 위해서 최고점과 최저점을 뺀 나머지 3명 점수의 최고점과 최저점의 차이가 4점 이상 나게 되면 점수 조정을 거쳐서 다시 점수를 매기려고 한다. 점수를 집계하여 총점을 계산하거나, 점수 조정을 거쳐서 다시 점수를 매기려고 하는 경우에는 총점 대신 KIN(Keep In Negotiation)을 출력하는 프로그램을 작성하시오.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;입력&quot;&gt;입력&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;입력의 첫 줄에는 테스트 케이스의 개수 T(1 ≤ T ≤ 10)가 주어진다. 각 테스트 케이스는 한 줄에 다섯 심판이 준 점수 다섯 개의 정수 Ni(1 ≤ Ni ≤ 10, i = 1, 2, …, 5)가 하나의 공백을 사이에 두고 주어진다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;출력&quot;&gt;출력&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;각 테스트 케이스에 대해서 총점을 한 줄씩 출력한다. 만일 점수 조정을 거쳐서 다시 점수를 매기려고 하는 경우에는 총점 대신 KIN을 출력한다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;코드&quot;&gt;코드&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import java.util.Scanner;
+public class baekjoon_sort {
+    public static int scoring(int array[]){
+        int temp = 0;
+        int sum = 0;
+        for (int a=0; a&amp;lt;4; a++)
+        {
+            for (int b=(a+1); b&amp;lt;5; b++)
+            {
+                if (array[a] &amp;gt; array[b])
+                {
+                    temp = array[a];
+                    array[a] = array[b];
+                    array[b] = temp;
+                }
+            }
+        }
+        if ((array[3] - array[1]) &amp;gt;= 4)
+            return 50;
+        else
+        {
+            sum = array[1] + array[2] + array[3];
+            return sum;
+        }
+    }
+
+
+
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(&quot;테스트 케이스의 개수: &quot;);
+        int test = scanner.nextInt();
+        int result[] = new int[test];
+        int scores[] = new int[5];
+
+
+        for (int i=0; i&amp;lt;test; i++)
+        {
+            System.out.println(&quot;심판 5명의 점수를 입력: &quot;);
+            for (int j=0; j&amp;lt;5; j++)
+            {
+                scores[j] = scanner.nextInt();
+            }
+
+
+            result[i] = scoring(scores);
+        }
+        for (int k=0; k&amp;lt;4; k++)
+        {
+            if (result[k] == 50)
+                System.out.println(&quot;KIN&quot;);
+            else
+                System.out.println(result[k]);
+        }
+
+        scanner.close();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Suppong</name></author><category term="과제" /><category term="과제" /><category term="정렬" /><category term="백준" /><summary type="html">백준 점수집계 문제 문제 링크 문제 한국 체조협회에서는 심판의 오심을 막기 위하여 점수 집계 시스템을 고치기로 하였다. 이전에는 5명의 심판이 1점부터 10점까지 정수의 점수를 주면 최고점과 최저점을 하나씩 제외한 점수의 합을 총점으로 하였다. 이를 보완하기 위해서 최고점과 최저점을 뺀 나머지 3명 점수의 최고점과 최저점의 차이가 4점 이상 나게 되면 점수 조정을 거쳐서 다시 점수를 매기려고 한다. 점수를 집계하여 총점을 계산하거나, 점수 조정을 거쳐서 다시 점수를 매기려고 하는 경우에는 총점 대신 KIN(Keep In Negotiation)을 출력하는 프로그램을 작성하시오.</summary></entry><entry><title type="html">2주차 과제</title><link href="/jekyll-theme-yat/%EA%B3%BC%EC%A0%9C/2022/03/14/week2-assignment.html" rel="alternate" type="text/html" title="2주차 과제" /><published>2022-03-14T00:00:00+00:00</published><updated>2022-03-14T00:00:00+00:00</updated><id>/jekyll-theme-yat/%EA%B3%BC%EC%A0%9C/2022/03/14/week2-assignment</id><content type="html" xml:base="/jekyll-theme-yat/%EA%B3%BC%EC%A0%9C/2022/03/14/week2-assignment.html">&lt;h2 id=&quot;알고리즘의-성능평가&quot;&gt;알고리즘의 성능평가&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;BIG-OH-notation
+    &lt;ul&gt;
+      &lt;li&gt;자신의 알고리즘의 Time Complexity가 &lt;em&gt;f(x)&lt;/em&gt;라고 할때 임의의 알고리즘 &lt;em&gt;g(x)&lt;/em&gt;에 대하여 &lt;em&gt;f(x)&lt;/em&gt;는 &lt;em&gt;cg(x)&lt;/em&gt; 보다 &lt;strong&gt;&lt;em&gt;빠르지&lt;/em&gt;&lt;/strong&gt; 않을때 &lt;em&gt;cg(x)&lt;/em&gt;를 점근적 &lt;strong&gt;상한&lt;/strong&gt;이라고 한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Omega-notation
+    &lt;ul&gt;
+      &lt;li&gt;자신의 알고리즘의 Time Complexity가 &lt;em&gt;f(x)&lt;/em&gt;라고 할때 임의의 알고리즘 &lt;em&gt;g(x)&lt;/em&gt;에 대하여 &lt;em&gt;f(x)&lt;/em&gt;는 &lt;em&gt;cg(x)&lt;/em&gt; 보다 &lt;strong&gt;&lt;em&gt;느리지&lt;/em&gt;&lt;/strong&gt; 않을때 &lt;em&gt;cg(x)&lt;/em&gt;를 점근적 &lt;strong&gt;하한&lt;/strong&gt;이라고 한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Theta-notation
+    &lt;ul&gt;
+      &lt;li&gt;자신의 알고리즘의 Time Complexity가 &lt;em&gt;f(x)&lt;/em&gt;라고 할때 임의의 알고리즘 &lt;em&gt;g(x)&lt;/em&gt;에 대하여 &lt;em&gt;f(x)&lt;/em&gt;는 &lt;em&gt;c1g(x)&lt;/em&gt; 보다 빠르지 않고 &lt;em&gt;c2g(x)&lt;/em&gt;보다 느리지 않을때 &lt;em&gt;c1g(x)&lt;/em&gt;과 &lt;em&gt;c2g(x)&lt;/em&gt;를 성능 비교대상으로 쓴다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;git--github&quot;&gt;Git / Github&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;git: 버전관리시스템(vcs) : 저장소&lt;/li&gt;
+  &lt;li&gt;github: git -&amp;gt; 온라인 저장소: 협업툴&lt;/li&gt;
+  &lt;li&gt;github pages: 웹 호스팅: 무료 (지킬)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;명령어&quot;&gt;명령어&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;저장소 초기화&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git init [directory]&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone [repository] [directory]&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;버전 관리&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git pull&lt;/code&gt; : 온라인 저장소 -&amp;gt; 로컬 저장소 다운로드&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git add [file...]&lt;/code&gt; : 커밋할 파일들 스테이징&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git commit -m [message]&lt;/code&gt; : 스테이징 파일 -&amp;gt; 버전 업데이트&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push&lt;/code&gt; : 로컬 저장소 -&amp;gt; 온라인 저장소 업로드&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;상태&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git status&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git log&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Suppong</name></author><category term="과제" /><category term="github" /><category term="과제" /><summary type="html">알고리즘의 성능평가 BIG-OH-notation 자신의 알고리즘의 Time Complexity가 f(x)라고 할때 임의의 알고리즘 g(x)에 대하여 f(x)는 cg(x) 보다 빠르지 않을때 cg(x)를 점근적 상한이라고 한다. Omega-notation 자신의 알고리즘의 Time Complexity가 f(x)라고 할때 임의의 알고리즘 g(x)에 대하여 f(x)는 cg(x) 보다 느리지 않을때 cg(x)를 점근적 하한이라고 한다. Theta-notation 자신의 알고리즘의 Time Complexity가 f(x)라고 할때 임의의 알고리즘 g(x)에 대하여 f(x)는 c1g(x) 보다 빠르지 않고 c2g(x)보다 느리지 않을때 c1g(x)과 c2g(x)를 성능 비교대상으로 쓴다.</summary></entry><entry><title type="html">2주차 수업</title><link href="/jekyll-theme-yat/%EC%88%98%EC%97%85/2022/03/11/week2.html" rel="alternate" type="text/html" title="2주차 수업" /><published>2022-03-11T00:00:00+00:00</published><updated>2022-03-11T00:00:00+00:00</updated><id>/jekyll-theme-yat/%EC%88%98%EC%97%85/2022/03/11/week2</id><content type="html" xml:base="/jekyll-theme-yat/%EC%88%98%EC%97%85/2022/03/11/week2.html">&lt;h2 id=&quot;git--github&quot;&gt;Git / Github&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;git: 버전관리시스템(vcs) : 저장소&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;github: git -&amp;gt; 온라인 저장소: 협업툴&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;github pages: 웹 호스팅: 무료 (지킬)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;명령어&quot;&gt;명령어&lt;/h2&gt;
+
+&lt;p&gt;저장소 초기화
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git init [directory]&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone [repository] [directory]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;버전 관리
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git pull&lt;/code&gt; : 온라인 저장소 -&amp;gt; 로컬 저장소 다운로드
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git add [file...]&lt;/code&gt; : 커밋할 파일들 스테이징
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git commit -m [message]&lt;/code&gt; : 스테이징 파일 -&amp;gt; 버전 업데이트
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push&lt;/code&gt; : 로컬 저장소 -&amp;gt; 온라인 저장소 업로드&lt;/p&gt;
+
+&lt;p&gt;상태
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git status&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git log&lt;/code&gt;&lt;/p&gt;</content><author><name>Suppong</name></author><category term="수업" /><category term="github" /><summary type="html">Git / Github git: 버전관리시스템(vcs) : 저장소 github: git -&amp;gt; 온라인 저장소: 협업툴</summary></entry><entry><title type="html">복습</title><link href="/jekyll-theme-yat/%EA%B3%BC%EC%A0%9C/2022/03/04/week1-assignment.html" rel="alternate" type="text/html" title="복습" /><published>2022-03-04T00:00:00+00:00</published><updated>2022-03-04T00:00:00+00:00</updated><id>/jekyll-theme-yat/%EA%B3%BC%EC%A0%9C/2022/03/04/week1-assignment</id><content type="html" xml:base="/jekyll-theme-yat/%EA%B3%BC%EC%A0%9C/2022/03/04/week1-assignment.html">&lt;h1 id=&quot;샵은-대제목&quot;&gt;샵은 대제목&lt;/h1&gt;
+&lt;p&gt;볼드체는 양쪽에 별별 &lt;strong&gt;이렇게&lt;/strong&gt;&lt;br /&gt;
+기울임체는 양쪽에 별 &lt;em&gt;이렇게&lt;/em&gt;&lt;br /&gt;
+볼드체+기울임체는 양쪽에 별별별 &lt;strong&gt;&lt;em&gt;이렇게&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;별 대신 언더바로 대체 가능&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;목차는 맨 왼쪽에 별 띄고 쓰기&lt;/li&gt;
+  &lt;li&gt;목차2&lt;/li&gt;
+  &lt;li&gt;목차3
+    &lt;ul&gt;
+      &lt;li&gt;소목차는 탭하고 쓰기&lt;/li&gt;
+      &lt;li&gt;소목차2
+        &lt;ul&gt;
+          &lt;li&gt;소소목차1&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;숫자목차는 숫자.띄고 쓰기&lt;/li&gt;
+  &lt;li&gt;무조건 순서대로 번호 배정됨&lt;/li&gt;
+  &lt;li&gt;이렇게
+    &lt;ol&gt;
+      &lt;li&gt;탭하면 숫자 초기화&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이거는 맨 오른쪽 화살표&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;위아랫줄에 `이거 3개씩하면 코드블럭 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;하이퍼링크는 []() 대괄호안에 텍스트, 중괄호에 링크&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;이미지 게시는 &lt;img src=&quot;&quot; alt=&quot;&quot; /&gt; 대괄호안에 안넣어도 됨&lt;/strong&gt;
+&lt;img src=&quot;https://img.etnews.com/photonews/1702/919997_20170203152936_096_0002.jpg&quot; alt=&quot;깃허브 이미지&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;얇은 선을 그을려면 대쉬3개&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;문단 띄어쓰기는&lt;br /&gt;
+스페이스바 2번 또는&lt;br /&gt;
+역슬래쉬&lt;/p&gt;</content><author><name>Suppong</name></author><category term="과제" /><category term="과제" /><summary type="html">샵은 대제목 볼드체는 양쪽에 별별 이렇게 기울임체는 양쪽에 별 이렇게 볼드체+기울임체는 양쪽에 별별별 이렇게 별 대신 언더바로 대체 가능</summary></entry><entry><title type="html">1주차 수업</title><link href="/jekyll-theme-yat/%EC%88%98%EC%97%85/2022/03/04/week1.html" rel="alternate" type="text/html" title="1주차 수업" /><published>2022-03-04T00:00:00+00:00</published><updated>2022-03-04T00:00:00+00:00</updated><id>/jekyll-theme-yat/%EC%88%98%EC%97%85/2022/03/04/week1</id><content type="html" xml:base="/jekyll-theme-yat/%EC%88%98%EC%97%85/2022/03/04/week1.html">&lt;h1 id=&quot;행운의-편지&quot;&gt;행운의 편지&lt;/h1&gt;
+&lt;p&gt;이 편지는 &lt;strong&gt;영국&lt;/strong&gt;에서 시작~&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;sdfasdf&lt;/em&gt;
+&lt;strong&gt;gdfg&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;ewff&lt;/em&gt;
+&lt;strong&gt;Fwefe&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;dfsddf&lt;/li&gt;
+  &lt;li&gt;regergg&lt;/li&gt;
+  &lt;li&gt;serhe
+    &lt;ul&gt;
+      &lt;li&gt;ewgrgegr&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;rkgjhkkr&lt;/li&gt;
+  &lt;li&gt;qt43fre&lt;/li&gt;
+  &lt;li&gt;e rgerg&lt;/li&gt;
+  &lt;li&gt;fgdfg
+    &lt;ol&gt;
+      &lt;li&gt;ggerg&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;rergrer&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;reknrenkv ‘_posts’ ergjherkgjkj&lt;/p&gt;
+
+&lt;p&gt;’’’
+ffrgthrterg 코드블락
+‘’’&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;깃허브 링킹&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img.etnews.com/photonews/1702/919997_20170203152936_096_0002.jpg&quot; alt=&quot;깃허브 이미지 첨부 여기 비워도댐&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;글자띄어&lt;br /&gt;
+쓰기는두&lt;br /&gt;
+가지이다&lt;/p&gt;</content><author><name>Suppong</name></author><category term="수업" /><summary type="html">행운의 편지 이 편지는 영국에서 시작~</summary></entry><entry><title type="html">Theme Sample</title><link href="/jekyll-theme-yat/2015/02/28/sample.html" rel="alternate" type="text/html" title="Theme Sample" /><published>2015-02-28T00:00:00+00:00</published><updated>2015-02-28T00:00:00+00:00</updated><id>/jekyll-theme-yat/2015/02/28/sample</id><content type="html" xml:base="/jekyll-theme-yat/2015/02/28/sample.html">&lt;p&gt;You can write regular &lt;a href=&quot;https://markdowntutorial.com/&quot;&gt;markdown&lt;/a&gt; here and Jekyll will automatically convert it to a nice webpage.  I strongly encourage you to &lt;a href=&quot;http://markdowntutorial.com/&quot;&gt;take 5 minutes to learn how to write in markdown&lt;/a&gt; - it’ll teach you how to transform regular text into bold/italics/headings/tables/etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Here is some bold text&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;here-is-a-secondary-heading&quot;&gt;Here is a secondary heading&lt;/h2&gt;
+
+&lt;p&gt;Here’s a useless table:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Number&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Next number&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Previous number&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Five&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Six&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Four&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ten&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Eleven&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nine&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Seven&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Eight&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Six&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Two&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Three&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;One&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;How about a yummy crepe?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg&quot; alt=&quot;Crepe&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It can also be centered!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg&quot; alt=&quot;Crepe&quot; class=&quot;center-block&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s a code chunk:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var foo = function(x) {
+  return(x + 5);
+}
+foo(3)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And here is the same code with syntax highlighting:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And here is the same code yet again but with line numbers:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;boxes&quot;&gt;Boxes&lt;/h2&gt;
+&lt;p&gt;You can add notification, warning and error boxes like this:&lt;/p&gt;
+
+&lt;h3 id=&quot;notification&quot;&gt;Notification&lt;/h3&gt;
+
+&lt;p class=&quot;box-note&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; This is a notification box.&lt;/p&gt;
+
+&lt;h3 id=&quot;warning&quot;&gt;Warning&lt;/h3&gt;
+
+&lt;p class=&quot;box-warning&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; This is a warning box.&lt;/p&gt;
+
+&lt;h3 id=&quot;error&quot;&gt;Error&lt;/h3&gt;
+
+&lt;p class=&quot;box-error&quot;&gt;&lt;strong&gt;Error:&lt;/strong&gt; This is an error box.&lt;/p&gt;</content><author><name>Suppong</name></author><summary type="html">You can write regular markdown here and Jekyll will automatically convert it to a nice webpage. I strongly encourage you to take 5 minutes to learn how to write in markdown - it’ll teach you how to transform regular text into bold/italics/headings/tables/etc.</summary></entry></feed>
